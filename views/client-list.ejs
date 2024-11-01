@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Clientes</title>
+</head>
+<body>
+  <h2>Clientes</h2>
+  <form action="/clients" method="POST">
+    <label>Nome:</label>
+    <input type="text" name="name" required>
+    <label>CNPJ:</label>
+    <input type="text" name="cnpj" required>
+    <button type="submit">Cadastrar Cliente</button>
+  </form>
+  <table>
+    <tr>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>Ações</th>
+    </tr>
+    <% clients.forEach(client => { %>
+      <tr>
+        <td><%= client.name %></td>
+        <td><%= client.cnpj %></td>
+        <td><a href="/clients/<%= client._id %>/products">Ver Produtos</a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>

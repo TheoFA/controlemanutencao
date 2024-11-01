@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatórios de <%= product.name %></title>
+</head>
+<body>
+  <h2>Relatórios de <%= product.name %></h2>
+  <form action="/products/<%= product._id %>/reports" method="POST">
+    <label>Conteúdo do Relatório:</label>
+    <textarea name="content" required></textarea>
+    <button type="submit">Adicionar Relatório</button>
+  </form>
+  <ul>
+    <% reports.forEach(report => { %>
+      <li><%= report.date.toLocaleDateString() %> - <%= report.content %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>

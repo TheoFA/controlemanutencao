@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Produtos de <%= client.name %></title>
+</head>
+<body>
+  <h2>Produtos de <%= client.name %></h2>
+  <form action="/clients/<%= client._id %>/products" method="POST">
+    <label>Nome do Produto:</label>
+    <input type="text" name="name" required>
+    <button type="submit">Adicionar Produto</button>
+  </form>
+  <table>
+    <tr>
+      <th>Nome do Produto</th>
+      <th>Ações</th>
+    </tr>
+    <% products.forEach(product => { %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><a href="/products/<%= product._id %>/reports">Ver Relatórios</a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
